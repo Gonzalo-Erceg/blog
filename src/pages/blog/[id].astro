@@ -1,0 +1,33 @@
+---
+
+
+import Layout from "../../layouts/Layout.astro"
+import { getCollection, CollectionEntry} from "astro:content";
+import { Image } from "astro:assets";
+export async function getStaticPaths() {
+    const blogEntries = await getCollection("blog")
+
+    return blogEntries.map(entry=>({
+        params:{id:entry.slug},props:{entry}
+    }));
+}
+
+const {entry} = Astro.props as {entry:CollectionEntry<"blog">}
+
+const {Content} =await entry.render()
+
+export const prerender = true
+---
+
+
+
+<Layout title={entry.data.title}>
+    <header  class=" max-w-5xl mx-auto px-10">
+        <Image src={entry.data.img} height={300} width={300} alt={"game"} class="mx-auto"       />
+        <h1 class="text-5xl font-semibold md:text-6xl mt-10">{entry.data.title}</h1>
+    </header>
+    <main class=" max-w-5xl mx-auto px-10 mt-20">
+        
+        <Content/>
+    </main>
+</Layout>

@@ -1,0 +1,65 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import Main from "../components/Main.astro"
+
+---
+
+<Layout title="Welcome to Astro.">
+	<header class=" w-full min-h-[75vh] gap-20 pt-20 flex flex-wrap items-center justify-around" style="background-image: linear-gradient(135deg, #172554 18%, #1e3a8a 86%);">
+		<div>
+			<h1 class="text-6xl md:text-7xl text-slate-50	 font-pixel">Diario de Desarrollo</h1>
+			<p class="text-slate-50 text-3xl md:text-4xl font-pixel">Un lugar dedicado al desarrollo de videojuegos.</p>
+			
+			<div class="overflow-hidden">
+				<ul class="relative font-pixel  text-slate-50 gap-4 text-3xl md:text-4xl h-10 w-full  ">
+
+					<li>Videojuegos</li>
+					<li>Desarrollo</li>
+					<li>Diseño</li>
+					<li>Godot</li>
+					
+					
+			
+				</ul>
+			</div>
+			
+		</div>
+		<div class="bg-white h-3/4 overflow-hidden self-end rounded-t-full flex flex-col justify-end">
+			<Image src="/img/caba.png" loading={"eager"} style=" image-rendering: pixelated"  width={512} height={512} alt="caballero"/>
+		</div>
+	</header>
+	<Main/>
+	
+</Layout>
+
+<style>
+	ul{
+		animation: desplazamiento 6s cubic-bezier(0.68,-0.55,0.27,1.55) infinite ;
+		
+	}
+
+	
+	@keyframes desplazamiento {
+		0%{
+			transform: translateY(100%);
+		}
+		10%, 20%{
+			transform: translateY(0);
+		}
+		30%, 40%{
+			transform: translateY(-100%);
+		}
+		50%, 60%{
+			transform: translateY(-200%);
+		}
+		70%, 80%{
+			transform: translateY(-300%);
+		
+		}
+		100%{
+			transform: translateY(-400%);
+		}
+
+	}
+</style>

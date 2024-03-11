@@ -1,0 +1,23 @@
+---
+interface Props{
+    title:string,
+    img:string,
+    description:string,
+    slug:string,
+    published:string
+}
+import { Image } from 'astro:assets'
+
+const {title,img,description,slug,published} = Astro.props
+---
+
+<li class="w-[300px] rounded-md p-4  shadow transition hover:shadow-lg" >
+    <a href={`/blog/${slug}`}><h3 class="text-3xl  font-semibold">{title}</h3>
+    <Image src={img} height={250} width={250} alt="introduccion" class="mx-auto  object-cover"/></a>
+    <div class="w-full ">
+        <time datetime={published} class="font-semibold">{published}</time>
+        
+        <p>{description}</p>
+    </div>
+</li>
+
