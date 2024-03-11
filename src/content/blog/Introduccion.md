@@ -1,6 +1,6 @@
 ---
 title: "Introducción"
-img: "/img/article/introduccion.png"
+img: "/blog/img/article/introduccion.png"
 tags: [ "godot"]
 description: "Pequeña introducción de este hermoso proyecto"
 published: "2024-3-11"
